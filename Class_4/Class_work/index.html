@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - SMIT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        #content {
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            margin: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="loadContent('home')">Home</a>
+        <a href="#" onclick="loadContent('about')">About</a>
+        <a href="#" onclick="loadContent('gallery')">Gallery</a>
+        <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    </nav>
+    <hr>
+    <div id="content">
+        <h2>Welcome to SMIT</h2>
+        <img src="./Image/bike logo.png" alt="Bike Logo" width="300px" loading="eager">
+        <img src="./Image/Realstate.jpg" alt="Real Estate" width="300px" loading="lazy">
+        
+    </div>
+    <script>
+        function loadContent(page) {
+            const contentDiv = document.getElementById('content');
+            if (page === 'home') {
+                document.title = 'Home - SMIT'
+                contentDiv.innerHTML = `<h2>This is the Home page.</h2>
+                <img src="./Image/bike logo.png" alt="Bike Logo" width="300px">
+                <img src="./Image/Realstate.jpg" alt="Real Estate" width="300px">
+                `;
+            } else if (page === 'about') {
+                document.title = 'About - SMIT'
+                contentDiv.innerHTML = `
+                    <h2>This is About Page</h2>
+                    <img src="./Image/bike logo.png" alt="Bike Logo" width="300px">
+                    <img src="./Image/Realstate.jpg" alt="Real Estate" width="300px">
+                `;
+            } else if (page === 'gallery') {
+                document.title = 'Gallery - SMIT'
+                contentDiv.innerHTML = `
+                    <h2>Gallery</h2>
+                    <img src="./Image/bike logo.png" alt="Bike Logo" width="300px">
+                    <img src="./Image/Realstate.jpg" alt="Real Estate" width="300px">
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

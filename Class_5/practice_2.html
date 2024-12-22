@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            padding: 10px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+
+        td {
+            vertical-align: top;
+            padding-bottom: 2px;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        td:last-child {
+            display: inline-flex;
+            width: 95%;
+        }
+
+        label {
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select, button {
+            width: 95%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #5046e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3b37c9;
+        }
+
+        button[type="reset"] {
+            background-color: #e74c3c;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #c0392b;
+        }
+        .hobby, .gender {
+            width: 10% !important;
+            padding-bottom: 3px;
+
+        }
+
+        td[colspan="2"] {
+            text-align: center;
+        }
+        td
+        .image-preview {
+            width: 50%;
+            max-width: 300px;
+            align-items: center;
+            height: auto;
+            border: 1px solid dodgerblue;
+            border-radius: 5px;
+            display: none;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+        }
+
+
+        @media (max-width: 768px) {
+            table {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form action="welcome.html">
+        <table border="0">
+            <tr>
+                <td><label for="first-name">Enter your full Name</label><i class="fa-solid fa-user"></i></td>
+                <td><input type="text" id="first-name" placeholder="Enter your first name" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Enter your Password</label></td>
+                <td><input type="password" id="password" placeholder="Enter your password" required></td>
+            </tr>
+            <tr>
+                <td><label for="re-password">Re-enter your Password</label></td>
+                <td><input type="password" id="re-password" placeholder="Re-enter your password" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Enter your Email</label></td>
+                <td><input type="email" id="email" placeholder="Enter your email" required></td>
+            </tr>
+            <tr>
+                <td><label for="mobile">Enter your Mobile</label></td>
+                <td><input type="text" id="mobile" placeholder="Enter your mobile number" required></td>
+            </tr>
+            <tr>
+                <td><label for="address">Enter your Address</label></td>
+                <td><textarea id="address" rows="4" placeholder="Enter your address" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Enter your Gender</td>
+                <td class="gender">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Select Your Hobbies</td>
+                <td class="hobby">
+                    <input type="checkbox" id="hobby1" name="hobbies" value="hobby1">
+                    <label for="hobby1">Cricket</label>
+                    <input type="checkbox" id="hobby2" name="hobbies" value="hobby2">
+                    <label for="hobby2">Tour</label>
+                    <input type="checkbox" id="hobby3" name="hobbies" value="hobby3">
+                    <label for="hobby3">Programming</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Select your DOB</td>
+                <td><input type="date" id="dob" required></td>
+            </tr>
+            <tr>
+                <td>Select your Country</td>
+                <td>
+                    <select id="country" required>
+                        <option disabled selected>Select your country</option>
+                        <option>Pakistan</option>
+                        <option>India</option>
+                        <option>United Arab Emirates</option>
+                        <option>Iran</option>
+                        <option>Iraq</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="file" id="imageInput" accept="image/*"></td>
+                <td>       
+                    <div class="container">
+                        <img id="imagePreview" class="image-preview" alt="Selected Image">
+                    </div>
+                </td>
+            </tr>
+            <tr align="center">
+                <td><button type="submit">Save my Data</button></td>
+                <td><button type="reset">Reset Data</button></td>
+            </tr>
+        </table>
+ 
+    </form>
+<script>
+    document.getElementById('imageInput').addEventListener('change', function () {
+        const file = this.files[0];
+        const preview = document.getElementById('imagePreview');
+        if (file) {
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = 'block';
+        } else {
+            preview.style.display = 'none';
+        }
+    });
+</script>
+</body>
+
+</html>
